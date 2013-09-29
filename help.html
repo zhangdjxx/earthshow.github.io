@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+<meta charset="UTF-8" />
+<title>使用说明</title>
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="css/skin/bluemonday/jplayer.blue.monday.css" />
+<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="js/jquery.jplayer.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/custom.js"></script><!--transition effects-->
+<script type="text/javascript">
+    $(document).ready(function(){
+      
+	  $(".pad").height($(document).height()-75);
+    });
+	
+	$(window).resize(function(){
+	  $(".pad").height($(document).height()-75);
+	});
+</script>
+
+</head>
+<body>
+<div id="content">
+<div id="help">
+<div class="pad">
+<div class="text">
+<h1><em>Touch'n'Play</em><br />南京大学地球科学与工程学院院史馆</h1>
+<br >
+<h2>Author: ZHANG DJ (張帶軍), Tzan Zen-zen (張誠成), YEP Ghung (葉鴻)</h2>
+<br >
+<h3>Powered by jQuery & its wonderful plugins</h3>
+<h3>请用现代浏览器观看：）</h3>
+<br >
+<img src="img/help.jpg" usemap="#planetmap" style="margin:0;width:966px;height:650px;"> <!--大小没调-->
+<map name="planetmap" id="planetmap">
+<area shape="circle" coords="170,60,70" href="video.html" />
+<area shape="circle" coords="360,120,70" href="album.html" />
+<area shape="circle" coords="500,260,70" href="chat.html" />
+<area shape="circle" coords="560,460,70" href="help.html" />
+<area shape="circle" coords="966,0,70" href="https://github.com/zhangdjxx/zhangdjxx.github.com#readme" />
+<area shape="circle" coords="560,550,30" onClick="disp_alert()" />
+
+</map>
+<br >
+<br >
+<br >
+<br >
+<br >
+<br >
+<br >
+<br >
+<br >
+<h1>Enjoy!</h1>
+</div>
+</div>
+</div>
+<div id="toolbar">
+  <div id="homebtn"><a href="index.html"><img /></a></div>
+</div>
+</div>
+</body>
+</html>

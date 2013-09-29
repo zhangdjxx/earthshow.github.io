@@ -1,0 +1,116 @@
+.textbox {
+	font-size: 150%;
+	padding: 25px 50px;
+	width:1000px;
+	height:700px;
+	overflow:auto;
+	background-color: #E4E4B9;
+}
+
+h2 {
+	font-family: 微软雅黑, 黑体;
+	font-weight: normal;
+}
+
+h3 {
+	font-family: 华文中宋;
+	font-weight: normal;
+}
+
+p {
+	text-indent: 2em;
+	font-family: 宋体;
+	font-weight: normal;
+	line-height: 1.5em;
+}
+	  
+.face {
+	width: 200px;
+	height: 280px;
+	position: relative;
+	margin: 0;
+	-moz-box-shadow: 4px 4px 6px #333;
+	-webkit-box-shadow: 4px 4px 6px #333;
+}
+	  
+.ui-jcoverflip {
+	position: relative;
+}
+
+.ui-jcoverflip--item {
+	position: absolute;
+	display: block;
+}
+
+#flip1 {
+    height: 200px;
+    width: 830px;
+    margin-bottom: 50px;
+}
+      
+#flip1 .ui-jcoverflip--title {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    color: #555;
+}
+      
+#flip1 img {
+    display: block;
+    border: 0;
+	outline: none;
+}
+      
+#flip1 a {
+	outline: none;
+}
+      
+ul, ul li {
+	margin: 0;
+	padding: 0;
+	display: block;
+	list-style-type: none;
+}
+	  
+#fslide1 {
+	position: relative;
+	margin: 0;
+	right: -20%;
+	top: 10%;
+}
+
+
+#flip2 {
+	height: 200px;
+	width: 830px;
+	margin-bottom: 50px;
+      }
+      
+#flip2 .ui-jcoverflip--title {
+	position: absolute;
+	bottom: -20px;
+	width: 100%;
+	text-align: center;
+	color: #555;
+}
+      
+#flip2 img {
+	display: block;
+	border: 0;
+	outline: none;
+}
+      
+#flip2 a {
+	outline: none;
+}
+	  
+#fslide2 {
+	position: relative;
+	margin: 0;
+	left: 20%;
+	top: 20%;
+}
+.title {
+	font-size: 250%;
+}

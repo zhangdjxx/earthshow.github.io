@@ -1,0 +1,507 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+<meta charset="UTF-8" />
+<title>电子相册</title>
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="css/skin/bluemonday/jplayer.blue.monday.css" />
+<link rel="stylesheet" type="text/css" href="css/slide-style.css" />
+<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" />
+<link rel="stylesheet" type="text/css" href="css/screen.css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="js/custom.js"></script><!--transition effects-->
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.latest.js"></script>
+<style type="text/css">
+#screen {
+	margin:0;
+	padding:0;
+	background: #000
+;	width:100%;
+	overflow: hidden;
+	display:none;
+}
+
+#screen .pad {
+	background: #555;
+}
+
+.slideshow { height: auto; width: auto; margin: 0; }
+.slideshow img { padding: 0; border: 1px solid #ccc; background-color: #eee; }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#screen").click(function () {
+		$("#screen").hide();
+		$("#album").show();
+	});
+});
+
+$(function(){
+	var timer;
+	$("#screen").hover(function(){clearInterval(timer);},function(){timer=setInterval(function(){scroll()},360000);}).trigger("mouseleave");
+});
+
+function scroll() {
+	$("#album").hide();
+	$("#screen").css({'display':'block'}).show();
+}
+
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+	  
+		$(".pad").height($(document).height()-76);
+	  
+		$("a[rel=1954],a[rel=1972],a[rel=1973],a[rel=1974],a[rel=1975],a[rel=1976],a[rel=1977],a[rel=1978],a[rel=1979],\
+	               a[rel=1980],a[rel=1981],a[rel=1982],a[rel=1983],a[rel=1984],a[rel=1985],a[rel=1986],a[rel=1987],a[rel=1988],a[rel=1989],\
+				   a[rel=1990],a[rel=1991],a[rel=1992],a[rel=1993],a[rel=1994],a[rel=1995],a[rel=1996],a[rel=1997],a[rel=1998],a[rel=1999],\
+				   a[rel=2000],a[rel=2001],a[rel=2002],a[rel=2003],a[rel=2004],a[rel=2005],a[rel=2006],a[rel=2007]").fancybox({
+		'transitionIn'		: 'none',
+		'transitionOut'		: 'none',
+		'titlePosition' 	: 'over',
+		'cyclic'            : true,
+		'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+			return '<span id="fancybox-title-over">图 ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+		}
+	});
+    });
+	
+	$(window).resize(function(){
+	  $(".pad").height($(document).height()-76);
+	});
+	
+	$(function(){
+		$(".scrolllist").xslider({
+			unitdisplayed:4,//显示个数
+			movelength:4,//点击一次移动个数
+			unitlen:176,//
+			autoscroll:null}) //是否自动切换
+		})//默认左右移动slide效果
+</script>
+</head>
+<body onload="initScreenSaver();">
+<div id="content">
+<!--<img class="corner" src="img/bg/chat.png" />-->
+<div id="album">
+<div class="pad">
+<div id="upper">
+<span class="stitle">1954~1989</span>
+<div class="scrolllist">
+		<a class="abtn aleft" href="#left" title="上一张"></a>
+		<div class="imglist_w">
+			<ul class="imglist">
+			<li>
+				<div id="1954">
+				<a rel="1954" href="img/pictureshow/1954级水工50周年聚会.jpg" title="1954级水工50周年聚会"><img width="150" height="150" alt="" src="img/year/1954.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1972">
+				<a rel="1972" href="img/pictureshow/1972级同学联谊会合影.jpg" title="1972级同学联谊会合影" ><img width="150" height="150" alt="" src="img/year/1972.png" /></a>
+                <a rel="1972" href="img/pictureshow/1972级找矿1-3班毕业实习合影.jpg" title="1972级找矿1-3班毕业实习合影"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1973">
+				<a rel="1973" href="img/pictureshow/1972以及1973合影4连5排13班.jpg" title="1972以及1973合影4连5排13班"><img width="150" height="150" alt="" src="img/year/1973.png" /></a>
+                <a rel="1973" href="img/pictureshow/1973级水文班毕业照.jpg" title="1973级水文班毕业照"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1974">
+				<a rel="1974" href="img/pictureshow/1974级百年校庆留念.jpg" title="1974级百年校庆留念"><img width="150" height="150" alt="" src="img/year/1974.png" /></a>
+                <a rel="1974" href="img/pictureshow/1974级区域地质专业一班毕业合影.jpg" title="1974级区域地质专业一班毕业合影"></a>
+                <a rel="1974" href="img/pictureshow/1974级区域二班毕业留念.jpg" title="1974级区域二班毕业留念.jpg"></a>
+				<a rel="1974" href="img/pictureshow/1974级水文工程毕业留念.jpg" title="1974级水文工程毕业留念"></a>
+				<a rel="1974" href="img/pictureshow/1974级岩矿专业毕业留念.jpg" title="1974级岩矿专业毕业留念"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1975">
+				<a rel="1975" href="img/pictureshow/1975级地震专业毕业留念.jpg" title="1975级地震专业毕业留念"><img width="150" height="150" alt="" src="img/year/1975.png" /></a>
+                <a rel="1975" href="img/pictureshow/1975级区域专业毕业留念.jpg" title="1975级区域专业毕业留念"></a>
+				<a rel="1975" href="img/pictureshow/1975级水文工程毕业合影.jpg" title="1975级水文工程毕业合影"></a>
+				<a rel="1975" href="img/pictureshow/1975级岩矿专业毕业留念.jpg" title="1975级岩矿专业毕业留念"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1976">
+				<a rel="1976" href="img/pictureshow/1976级毕业三十周年.jpg" title="1976级毕业三十周年"><img width="150" height="150" alt="" src="img/year/1976.png" /></a>
+				</div>
+			</li>
+			
+			<li>
+				<div id="1977">
+				<a rel="1977" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1977.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1978">
+				<a rel="1978" href="img/pictureshow/1978级毕业合影.jpg" title="1978级毕业合影"><img width="150" height="150" alt="" src="img/year/1978.png" /></a>
+                <a rel="1978" href="img/pictureshow/1978级同学回校植树.jpg" title="1978级同学回校植树"></a>
+				<a rel="1978" href="img/pictureshow/1978级同学聚会合影照片.jpg" title="1978级同学聚会合影照片"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1979">
+				<a rel="1979" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1979.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1980">
+				<a rel="1980" href="img/pictureshow/1980级毕业合影1.jpg" title="1980级毕业合影1"><img width="150" height="150" alt="" src="img/year/1980.png" /></a>
+                <a rel="1980" href="img/pictureshow/1980级毕业合影2.jpg" title="1980级毕业合影2"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1981">
+				<a rel="1981" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1981.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1982">
+				<a rel="1982" href="img/pictureshow/1982级参加校运动会合影.jpg" title="1982级参加校运动会合影"><img width="150" height="150" alt="" src="img/year/1982.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1983">
+				<a rel="1983" href="img/pictureshow/1983级地质系20年聚会照片.jpg" title="1983级地质系20年聚会照片"><img width="150" height="150" alt="" src="img/year/1983.png" /></a>
+                <a rel="1983" href="img/pictureshow/1983级师生南京大学地质系合影.jpg" title="1983级师生南京大学地质系合影"></a>
+				<a rel="1983" href="img/pictureshow/1983以及1980系友在休斯顿聂大庆家聚会.jpg" title="1983以及1980系友在休斯顿聂大庆家聚会"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1984">
+				<a rel="1984" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1984.png" /></a>
+
+				</div>
+			</li>
+			<li>
+				<div id="1985">
+				<a rel="1985" href="img/pictureshow/1985地质系毕业照.jpg" title="1985地质系毕业照"><img width="150" height="150" alt="" src="img/year/1985.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1986">
+				<a rel="1986" href="img/pictureshow/1986级毕业照.jpg" title="1986级毕业照"><img width="150" height="150" alt="" src="img/year/1986.png" /></a>
+                <a rel="1986" href="img/pictureshow/1986级找矿专业入学照片.jpg" title="1986级找矿专业入学照片"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1987">
+				<a rel="1987" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1987.png" /></a>
+
+				</div>
+			</li>
+			<li>
+				<div id="1988">
+				<a rel="1988" href="img/pictureshow/1988级校友返校留念.jpg" title="1988级校友返校留念"><img width="150" height="150" alt="" src="img/year/1988.png" /></a>
+                <a rel="1988" href="img/pictureshow/1988级校友返校留念2.jpg" title="1988级校友返校留念2"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1989">
+				<a rel="1989" href="img/pictureshow/1989级本科毕业留影.jpg" title="1989级本科毕业留影"><img width="150" height="150" alt="" src="img/year/1989.png" /></a>
+                <a rel="1989" href="img/pictureshow/1989级本科的硕士研究生毕业合影.jpg" title="1989级本科的硕士研究生毕业合影"></a>
+				</div>
+			</li>
+			</ul><!--imglist end-->
+		</div>
+		<a class="abtn aright" href="#right" title="下一张"></a>
+	</div><!--scrolllist end-->
+</div>
+
+<div id="lower">
+<span class="stitle">1990~2007</span>
+
+
+<div class="scrolllist">
+	<a class="abtn aleft" href="#left" title="上一张"></a>
+		<div class="imglist_w">
+			<ul class="imglist">
+			<li>
+				<div id="1990">
+				<a rel="1990" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1990.png" /></a>
+
+				</div>
+			</li>
+			<li>
+				<div id="1991">
+				<a rel="1991" href="img/pictureshow/1991级合影1.jpg" title="1991级合影1"><img width="150" height="150" alt="" src="img/year/1991.png" /></a>
+				<a rel="1991" href="img/pictureshow/1991级合影2.jpg" title="1991级合影2"></a>
+				<a rel="1991" href="img/pictureshow/1991级合影3.jpg" title="1991级合影3"></a>
+				<a rel="1991" href="img/pictureshow/1991级合影4.jpg" title="1991级合影4"></a>
+				<a rel="1991" href="img/pictureshow/1991级合影5.jpg" title="1991级合影5"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1992">
+				<a rel="1992" href="img/pictureshow/1992级毕业照.jpg" title="1992级毕业照"><img width="150" height="150" alt="" src="img/year/1992.png" /></a>
+                <a rel="1992" href="img/pictureshow/1992级南芳园.jpg" title="1992级南芳园"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1993">
+				<a rel="1993" href="img/pictureshow/1993毕业照.jpg" title="1993毕业照"><img width="150" height="150" alt="" src="img/year/1993.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="1994">
+				<a rel="1994" href="img/pictureshow/1994级合影1.jpg" title="1994级合影1"><img width="150" height="150" alt="" src="img/year/1994.png" /></a>
+                <a rel="1994" href="img/pictureshow/1994级合影2.jpg" title="1994级合影2"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1995">
+				<a rel="1995" href="img/pictureshow/1995级毕业合影.jpg" title="1995级毕业合影"><img width="150" height="150" alt="" src="img/year/1995.png" /></a>
+                <a rel="1995" href="img/pictureshow/1995 08年南京同学聚会1.jpg" title="1995 08年南京同学聚会1"></a>
+				<a rel="1995" href="img/pictureshow/1995 08年南京同学聚会2.jpg" title="1995 08年南京同学聚会2"></a>
+				<a rel="1995" href="img/pictureshow/1995 08年南京同学聚会3.jpg" title="1995 08年南京同学聚会3"></a>
+				<a rel="1995" href="img/pictureshow/1995毕业十周年聚会1.jpg" title="1995毕业十周年聚会1"></a>
+				<a rel="1995" href="img/pictureshow/1995毕业十周年聚会2.jpg" title="1995毕业十周年聚会2"></a>
+				<a rel="1995" href="img/pictureshow/1995毕业十周年聚会3.jpg" title="1995毕业十周年聚会3"></a>
+				<a rel="1995" href="img/pictureshow/1995毕业十周年聚会4.jpg" title="1995毕业十周年聚会4"></a>
+				<a rel="1995" href="img/pictureshow/1995毕业十周年聚会5.jpg" title="1995毕业十周年聚会5"></a>
+				</div>
+			</li>	
+			<li>
+				<div id="1996">
+				<a rel="1996" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/1996.png" /></a>
+
+				</div>
+			</li>
+			<li>
+				<div id="1997">
+				<a rel="1997" href="img/pictureshow/1997级同学聚会-1.jpg" title="1997级同学聚会-1"><img width="150" height="150" alt="" src="img/year/1997.png" /></a>
+                <a rel="1997" href="img/pictureshow/1997级同学聚会-2.jpg" title="1997级同学聚会-2"></a>
+				<a rel="1997" href="img/pictureshow/1997级同学聚会-3.jpg" title="1997级同学聚会-3"></a>
+				<a rel="1997" href="img/pictureshow/1997级同学聚会-4.jpg" title="1997级同学聚会-4"></a>
+				</div>
+			</li>
+			<li>
+				<div id="1998">
+				<a rel="1998" href="img/pictureshow/1998级地科毕业照.jpg" title="1998级地科毕业照"><img width="150" height="150" alt="" src="img/year/1998.png" /></a>
+                <a rel="1998" href="img/pictureshow/1998级地科水文.jpg" title="1998级地科水文"></a>
+				<a rel="1998" href="img/pictureshow/1998级地科四班.jpg" title="1998级地科四班"></a>
+				<a rel="1998" href="img/pictureshow/1998级地科四班校庆.jpg" title="1998级地科水文"></a>
+				<a rel="1998" href="img/pictureshow/1998级在北大楼草坪前.jpg" title="1998级在北大楼草坪前"></a>
+				<a rel="1998" href="img/pictureshow/1998级在东南楼.jpg" title="1998级在东南楼"></a>
+				<a rel="1998" href="img/pictureshow/1998级在汉口路校门.jpg" title="1998级在汉口路校门"></a>
+				<a rel="1998" href="img/pictureshow/1998级在莫愁湖.jpg" title="1998级在莫愁湖"></a>
+				<a rel="1998" href="img/pictureshow/1998级在烧烤.jpg" title="1998级在烧烤"></a>
+				<a rel="1998" href="img/pictureshow/1998级在燕子矶.jpg" title="1998级在燕子矶"></a>
+				<a rel="1998" href="img/pictureshow/1998级足球赛合影.jpg" title="1998级足球赛合影"></a>
+				
+				</div>
+			</li>
+			<li>
+				<div id="1999">
+				<a rel="1999" href="img/pictureshow/1999级本科毕业照.jpg" title="1999级本科毕业照"><img width="150" height="150" alt="" src="img/year/1999.png" /></a>
+                <a rel="1999" href="img/pictureshow/1999级地科男生.jpg" title="1999级地科男生"></a>		
+				<a rel="1999" href="img/pictureshow/1999级女生与刘慧老师合影.jpg" title="1999级女生与刘慧老师合影"></a>
+				<a rel="1999" href="img/pictureshow/1999级地球科学系学生野外数字化区测实习.jpg" title="1999级地球科学系学生野外数字化区测实习"></a>
+			    <a rel="1999" href="img/pictureshow/1999级在大学生科学报告会.jpg" title="1999级在大学生科学报告会"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2000">
+				<a rel="2000" href="img/pictureshow/home.jpg" title="Waiting for you"><img width="150" height="150" alt="" src="img/year/2000.png" /></a>
+				</div>
+			</li>
+			<li>
+				<div id="2001">
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影.jpg" title="2001级本科毕业留影"><img width="150" height="150" alt="" src="img/year/2001.png" /></a>
+                <a rel="2001" href="img/pictureshow/2001级本科毕业留影常州恐龙园.jpg" title="2001级本科毕业留影常州恐龙园"></a>
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影巢湖实习.jpg" title="2001级本科毕业留影巢湖实习，想当年"></a>
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影年级活动之扬州行.jpg" title="2001级本科毕业留影年级活动之扬州行"></a>
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影向斜核部留影.jpg" title="2001级本科毕业留影向斜核部留影"></a>
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影照片1.jpg" title="2001级本科毕业留影照片1"></a>
+				<a rel="2001" href="img/pictureshow/2001级本科毕业留影照片2.jpg" title="2001级本科毕业留影照片2"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2002">
+				<a rel="2002" href="img/pictureshow/2002级毕业照.jpg" title="2002级毕业照"><img width="150" height="150" alt="" src="img/year/2002.png" /></a>
+                <a rel="2002" href="img/pictureshow/2002级实习合影1.jpg" title="2002级实习合影1"></a>
+				<a rel="2002" href="img/pictureshow/2002级实习合影2.jpg" title="2002级实习合影2"></a>
+				<a rel="2002" href="img/pictureshow/2002级实习合影3.jpg" title="2002级实习合影3"></a>
+				<a rel="2002" href="img/pictureshow/2002级实习合影4.jpg" title="2002级实习合影4"></a>
+				<a rel="2002" href="img/pictureshow/2002级同学聚会.jpg" title="2002级同学聚会"></a>
+				<a rel="2002" href="img/pictureshow/2002级在常州恐龙园.jpg" title="2002级在常州恐龙园"></a>
+				<a rel="2002" href="img/pictureshow/2002级在燕子矶.jpg" title="2002级在燕子矶"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2003">
+				<a rel="2003" href="img/pictureshow/2003级毕业合照.jpg" title="2003级毕业合照"><img width="150" height="150" alt="" src="img/year/2003.png" /></a>
+                <a rel="2003" href="img/pictureshow/2003级班级聚餐.jpg" title="2003级班级聚餐"></a>
+				<a rel="2003" href="img/pictureshow/2003级合影-1.jpg" title="2003级合影-1"></a>
+				<a rel="2003" href="img/pictureshow/2003级合影-2.jpg" title="2003级合影-2"></a>
+				<a rel="2003" href="img/pictureshow/2003级合影-3.jpg" title="2003级合影-3"></a>
+				<a rel="2003" href="img/pictureshow/2003级合影-4.jpg" title="2003级合影-4"></a>	
+				</div>
+			</li>
+			<li>
+				<div id="2004">
+				<a rel="2004" href="img/pictureshow/2004级同学毕业照1.jpg" title="2004级同学毕业照1"><img width="150" height="150" alt="" src="img/year/2004.png" /></a>
+                <a rel="2004" href="img/pictureshow/2004级同学毕业照2.jpg" title="2004级同学毕业照2"></a>
+				<a rel="2004" href="img/pictureshow/2004级同学野外实习照.jpg" title="2004级同学野外实习照"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影1.jpg" title="2004级聚会合影1"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影2.jpg" title="2004级聚会合影2"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影3.jpg" title="2004级聚会合影3"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影4.jpg" title="2004级聚会合影4"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影5.jpg" title="2004级聚会合影5"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影6.jpg" title="2004级聚会合影6"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影7.jpg" title="2004级聚会合影7"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影8.jpg" title="2004级聚会合影8"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影9.jpg" title="2004级聚会合影9"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影10.jpg" title="2004级聚会合影10"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影11.jpg" title="2004级聚会合影11"></a>
+				<a rel="2004" href="img/pictureshow/2004级聚会合影12.jpg" title="2004级聚会合影12"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2005">
+				<a rel="2005" href="img/pictureshow/2005级同学在莲花峰.jpg" title="2005级同学在莲花峰"><img width="150" height="150" alt="" src="img/year/2005.png" /></a>
+                <a rel="2005" href="img/pictureshow/2005级同学在迎客松前.jpg" title="2005级同学在迎客松前"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2006">
+				<a rel="2006" href="img/pictureshow/2006级全体毕业合照.jpg" title="2006级全体毕业合照"><img width="150" height="150" alt="" src="img/year/2006.png" /></a>
+                <a rel="2006" href="img/pictureshow/2006级地质工程班合影1.jpg" title="2006级地质工程班合影1"></a>
+				<a rel="2006" href="img/pictureshow/2006级地质工程班合影2.jpg" title="2006级地质工程班合影2"></a>
+				<a rel="2006" href="img/pictureshow/2006级地化合影1.jpg" title="2006级地化合影1"></a>
+				<a rel="2006" href="img/pictureshow/2006级地化合影2.jpg" title="2006级地化合影2"></a>
+				<a rel="2006" href="img/pictureshow/2006级基地班1.jpg" title="2006级基地班1"></a>
+				<a rel="2006" href="img/pictureshow/2006级基地七仙女.jpg" title="2006级基地七仙女"></a>
+				<a rel="2006" href="img/pictureshow/2006级水文班1.jpg" title="2006级水文班1"></a>
+				<a rel="2006" href="img/pictureshow/2006级水文班和地工班在琅琊山.jpg" title="2006级水文班和地工班在琅琊山"></a>
+				<a rel="2006" href="img/pictureshow/2006级岩矿班1.jpg" title="2006级岩矿班1"></a>
+				<a rel="2006" href="img/pictureshow/2006级岩矿班2.jpg" title="2006级岩矿班2"></a>
+				<a rel="2006" href="img/pictureshow/2006级同学实习合照1.jpg" title="2006级同学实习合照1"></a>
+				<a rel="2006" href="img/pictureshow/2006级同学实习合照2.jpg" title="2006级同学实习合照2"></a>
+				<a rel="2006" href="img/pictureshow/2006级在国家森林公园照片.jpg" title="2006级在国家森林公园照片"></a>
+				<a rel="2006" href="img/pictureshow/2006级天目湖合影.jpg" title="2006级天目湖合影"></a>
+				<a rel="2006" href="img/pictureshow/2006级同学植树合影.jpg" title="2006级同学植树合影"></a>
+				<a rel="2006" href="img/pictureshow/2006级游戏嘉年华.jpg" title="2006级游戏嘉年华"></a>
+				<a rel="2006" href="img/pictureshow/2006级浦口图书馆合影.jpg" title="2006级浦口图书馆合影"></a>
+				<a rel="2006" href="img/pictureshow/2006级篮球队员合影.jpg" title="2006级篮球队员合影"></a>
+				<a rel="2006" href="img/pictureshow/2006级乒乓球队员合影.jpg" title="2006级乒乓球队员合影"></a>
+				<a rel="2006" href="img/pictureshow/2006级羽毛球队员合影.jpg" title="2006级羽毛球队员合影"></a>
+				</div>
+			</li>
+			<li>
+				<div id="2007">
+				<a rel="2007" href="img/pictureshow/2007级毕业照.jpg" title="2007级毕业照"><img width="150" height="150" alt="" src="img/year/2007.png" /></a>
+                <a rel="2007" href="img/pictureshow/2007级大一实习地工合影1.jpg" title="2007级大一实习地工合影1"></a>
+				<a rel="2007" href="img/pictureshow/2007级大一实习地工合影2.jpg" title="2007级大一实习地工合影2"></a>
+				<a rel="2007" href="img/pictureshow/2007级大一实习地工合影3.jpg" title="2007级大一实习地工合影3"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学大一实习合影.jpg" title="2007级同学大一实习合影"></a>
+				<a rel="2007" href="img/pictureshow/2007级大一新年晚会合影.jpg" title="2007级大一新年晚会合影"></a>
+				<a rel="2007" href="img/pictureshow/2007级大一雨花台党组织活动合影.jpg" title="2007级大一雨花台党组织活动合影"></a>
+				<a rel="2007" href="img/pictureshow/2007级巢湖实习随拍照.jpg" title="2007级巢湖实习随拍照"></a>
+				<a rel="2007" href="img/pictureshow/2007级天目湖活动.jpg" title="2007级天目湖活动"></a>
+				<a rel="2007" href="img/pictureshow/2007级大二淮安党组织生活合影.jpg" title="2007级大二淮安党组织生活合影"></a>
+				<a rel="2007" href="img/pictureshow/2007级大二新年晚会合影.jpg" title="2007级大二新年晚会合影"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学纪念文川大地震一周年.jpg" title="2007级同学纪念文川大地震一周年"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学由浦口搬仙林校区.jpg" title="2007级同学由浦口搬仙林校区"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学由浦口搬仙林校区2.jpg" title="2007级同学由浦口搬仙林校区2"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学搬至仙林校区浦口留念.jpg" title="2007级同学搬至仙林校区浦口留念"></a>
+				<a rel="2007" href="img/pictureshow/2007级同学毕业聚餐.jpg" title="2007级同学毕业聚餐"></a>
+				<a rel="2007" href="img/pictureshow/2007级大四东南楼内学位照.jpg" title="2007级大四东南楼内学位照"></a>
+				</div>
+			</li>
+			</ul><!--imglist end-->
+		</div>
+		
+		<a class="abtn aright" href="#right" title="下一张"></a>
+	</div><!--scrolllist end-->
+</div>
+</div>
+</div>
+
+<!--Screen-->
+<div id="screen"><div class="pad">
+<div class="slideshow">
+		<img src="img/nju/01.png" />
+		<img src="img/nju/02.png" />
+		<img src="img/nju/03.png" />
+		<img src="img/nju/04.png" />
+		<img src="img/nju/05.png" />
+		<img src="img/nju/06.png" />
+		<img src="img/nju/07.png" />
+		<img src="img/nju/08.png" />
+		<img src="img/nju/09.png" />
+		<img src="img/nju/10.png" />
+		<img src="img/nju/11.png" />
+		<img src="img/nju/12.png" />
+		<img src="img/nju/13.png" />
+		<img src="img/nju/14.png" />
+		<img src="img/nju/15.png" />
+		<img src="img/nju/16.png" />
+		<img src="img/nju/17.png" />
+		<img src="img/nju/18.png" />
+		<img src="img/nju/19.png" />
+		<img src="img/nju/20.png" />
+		<img src="img/nju/21.png" />
+		<img src="img/nju/22.png" />
+		<img src="img/nju/23.png" />
+		<img src="img/nju/24.png" />
+		<img src="img/nju/25.png" />
+		<img src="img/nju/26.png" />
+		<img src="img/nju/27.png" />
+		<img src="img/nju/28.png" />
+		<img src="img/nju/29.png" />
+		<img src="img/nju/30.png" />
+		<img src="img/nju/31.png" />
+		<img src="img/nju/32.png" />
+		<img src="img/nju/33.png" />
+		<img src="img/nju/34.png" />
+		<img src="img/nju/35.png" />
+		<img src="img/nju/36.png" />
+		<img src="img/nju/37.png" />
+		<img src="img/nju/38.png" />
+		<img src="img/nju/39.png" />
+		<img src="img/nju/40.png" />
+		<img src="img/nju/41.png" />
+		<img src="img/nju/42.png" />
+		<img src="img/nju/43.png" />
+		<img src="img/nju/44.png" />
+		<img src="img/nju/45.png" />
+		<img src="img/nju/46.png" />
+		<img src="img/nju/47.png" />
+		<img src="img/nju/48.png" />
+		<img src="img/nju/49.png" />
+		<img src="img/nju/50.png" />
+		<img src="img/nju/51.png" />
+		<img src="img/nju/52.png" />
+		<img src="img/nju/53.png" />
+		<img src="img/nju/54.png" />
+		<img src="img/nju/55.png" />
+		<img src="img/nju/56.png" />
+		<img src="img/nju/57.png" />
+		<img src="img/nju/58.png" />
+	</div>
+</div></div>
+<!--End Screen-->
+
+
+
+<div id="toolbar">
+  <div id="homebtn"><a href="index.html"><img /></a></div>
+</div>
+</body>
+</html>
